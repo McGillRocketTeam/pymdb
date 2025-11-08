@@ -8,6 +8,10 @@ class Calibrator:
     engineering value for users (e.g. a float).
     """
 
+@dataclass
+class MathOperation(Calibrator):
+    language: str
+    text: str
 
 @dataclass
 class Polynomial(Calibrator):

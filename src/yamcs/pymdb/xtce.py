@@ -21,7 +21,7 @@ from yamcs.pymdb.algorithms import (
     UnnamedAlgorithm,
 )
 from yamcs.pymdb.ancillary import AncillaryData
-from yamcs.pymdb.calibrators import Calibrator, Interpolate, Polynomial
+from yamcs.pymdb.calibrators import Calibrator, Interpolate, Polynomial, MathOperation
 from yamcs.pymdb.commands import (
     Argument,
     ArgumentEntry,
@@ -2000,6 +2000,13 @@ class XTCE12Generator:
                 point_el = ET.SubElement(spline_el, "SplinePoint")
                 point_el.attrib["raw"] = str(x)
                 point_el.attrib["calibrated"] = str(calibrator.fp[idx])
+        elif isinstance(calibrator, MathOperation):
+            math_el = ET.SubElement(el, "MathOperationCalibrator")
+            op_el = ET.SubElement(math_el, "MathOperation")
+            if calibrator.language:
+                op_el.attrib["language"] = calibrator.language
+            if calibrator.text:
+                op_el.text = calibrator.text
         else:
             raise ExportError(f"Unexpected calibrator {calibrator.__class__}")
 
