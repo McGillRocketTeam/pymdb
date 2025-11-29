@@ -10,7 +10,6 @@ class Calibrator:
 
 @dataclass
 class MathOperation(Calibrator):
-    language: str
     text: str
 
 @dataclass

@@ -2002,11 +2002,15 @@ class XTCE12Generator:
                 point_el.attrib["calibrated"] = str(calibrator.fp[idx])
         elif isinstance(calibrator, MathOperation):
             math_el = ET.SubElement(el, "MathOperationCalibrator")
-            op_el = ET.SubElement(math_el, "MathOperation")
-            if calibrator.language:
-                op_el.attrib["language"] = calibrator.language
-            if calibrator.text:
-                op_el.text = calibrator.text
+            operand_el = ET.SubElement(math_el, "ThisParameterOperand")
+
+            # op_el = ET.SubElement(math_el, "MathOperation")
+            # if calibrator.text:
+            #     operation = calibrator.text.split(" ")
+            #     for op in operation:
+            #         if op.isnumeric():
+            #
+            #     op_el.text = calibrator.text
         else:
             raise ExportError(f"Unexpected calibrator {calibrator.__class__}")
 

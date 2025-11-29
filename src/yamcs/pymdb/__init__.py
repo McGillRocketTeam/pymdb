@@ -14,4 +14,3 @@ from yamcs.pymdb.expressions import *  # noqa
 from yamcs.pymdb.parameters import *  # noqa
 from yamcs.pymdb.systems import *  # noqa
 from yamcs.pymdb.verifiers import *  # noqa
-from .calibrators import MathOperation
