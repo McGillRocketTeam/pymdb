@@ -10,7 +10,12 @@ class Calibrator:
 
 @dataclass
 class MathOperation(Calibrator):
-    text: str
+    """
+    Raw values are converted to calibrated values using a math expression.
+    """
+
+    expression: str
+    """expression in reverse polish notation"""
 
 @dataclass
 class Polynomial(Calibrator):
