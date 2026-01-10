@@ -27,7 +27,7 @@ from yamcs.pymdb.commands import (
     ArgumentEntry,
     BooleanArgument,
     Command,
-    CommandLevel,
+    CommandSignificance, #CommandLevel,
     EnumeratedArgument,
     FixedValueEntry,
 )
@@ -280,18 +280,36 @@ class XTCE12Generator:
                 start=command.system,
             )
 
-        sign_el = ET.SubElement(el, "DefaultSignificance")
+        # sign_el = ET.SubElement(el, "DefaultSignificance")
+        #
+        # if command.level == CommandLevel.NORMAL:
+        #     sign_el.attrib["consequenceLevel"] = "normal"
+        # elif command.level == CommandLevel.VITAL:
+        #     sign_el.attrib["consequenceLevel"] = "vital"
+        # elif command.level == CommandLevel.CRITICAL:
+        #     sign_el.attrib["consequenceLevel"] = "critical"
+        # elif command.level == CommandLevel.FORBIDDEN:
+        #     sign_el.attrib["consequenceLevel"] = "forbidden"
+        # else:
+        #     raise ExportError(f"Unexpected command level {command.level}")
 
-        if command.level == CommandLevel.NORMAL:
-            sign_el.attrib["consequenceLevel"] = "normal"
-        elif command.level == CommandLevel.VITAL:
-            sign_el.attrib["consequenceLevel"] = "vital"
-        elif command.level == CommandLevel.CRITICAL:
-            sign_el.attrib["consequenceLevel"] = "critical"
-        elif command.level == CommandLevel.FORBIDDEN:
-            sign_el.attrib["consequenceLevel"] = "forbidden"
+        sign_el = ET.SubElement(el, "CommandSignificance")
+
+        if command.significance == CommandSignificance.NONE:
+            sign_el.attrib["significance"] = "none"
+        elif command.significance == CommandSignificance.WATCH:
+            sign_el.attrib["significance"] = "watch"
+        elif command.significance == CommandSignificance.WARNING:
+            sign_el.attrib["significance"] = "warning"
+        elif command.significance == CommandSignificance.DISTRESS:
+            sign_el.attrib["significance"] = "distress"
+        elif command.significance == CommandSignificance.CRITICAL:
+            sign_el.attrib["significance"] = "critical"
+        elif command.significance == CommandSignificance.SEVERE:
+            sign_el.attrib["significance"] = "severe"
         else:
-            raise ExportError(f"Unexpected command level {command.level}")
+            raise ExportError(f"Unexpected command significance {command.significance}")
+
 
         if command.warning_message:
             sign_el.attrib["reasonForWarning"] = command.warning_message
