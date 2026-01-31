@@ -8,6 +8,14 @@ class Calibrator:
     engineering value for users (e.g. a float).
     """
 
+@dataclass
+class MathOperation(Calibrator):
+    """
+    Raw values are converted to calibrated values using a math expression.
+    """
+
+    expression: str
+    """expression in reverse polish notation"""
 
 @dataclass
 class Polynomial(Calibrator):

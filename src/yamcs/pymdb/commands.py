@@ -40,6 +40,17 @@ if TYPE_CHECKING:
     from yamcs.pymdb.calibrators import Calibrator
     from yamcs.pymdb.systems import System
 
+class CommandSignificance(Enum):
+    """
+    The XTCE significance level of a command.
+    """
+
+    NONE = 0
+    WATCH = 1
+    WARNING = 2
+    DISTRESS = 3
+    CRITICAL = 4
+    SEVERE = 5
 
 class CommandLevel(Enum):
     """
@@ -520,7 +531,7 @@ class Command:
         assignments: Mapping[str, Any] | None = None,
         arguments: Sequence[Argument] | None = None,
         entries: Sequence[CommandEntry] | None = None,
-        level: CommandLevel = CommandLevel.NORMAL,
+        significance: CommandSignificance = CommandSignificance.NONE, #level: CommandLevel = CommandLevel.NORMAL,
         warning_message: str | None = None,
         constraint: (
             Union[TransmissionConstraint, Sequence[TransmissionConstraint]] | None
@@ -576,7 +587,7 @@ class Command:
         self.complete_verifiers: list[CompleteVerifier] = []
         self.failed_verifier: FailedVerifier | None = None
 
-        self.level: CommandLevel = level
+        self.significance: CommandSignificance = significance #self.level: CommandLevel = level
         """
         The importance of this telecommand in terms of the nature and
         significance of its on-board effect.
