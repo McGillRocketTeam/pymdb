@@ -42,7 +42,7 @@ if TYPE_CHECKING:
 
 class CommandSignificance(Enum):
     """
-    The level of access to the XTCE telecommand.
+    The XTCE significance level of a command.
     """
 
     NONE = 0
