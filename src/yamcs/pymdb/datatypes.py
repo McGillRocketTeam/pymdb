@@ -81,7 +81,7 @@ class DataType:
         self.extra: dict[str, str] = dict(extra or {})
         """Arbitrary information, keyed by name"""
 
-        self.calibrate_units: str | None = calibrated_units
+        self.calibrated_units: str | None = calibrated_units
         self.raw_units: str | None = raw_units
         """Engineering units"""
 
