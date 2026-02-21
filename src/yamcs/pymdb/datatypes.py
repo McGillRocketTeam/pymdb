@@ -555,7 +555,7 @@ class EnumeratedMember(Member, EnumeratedDataType):
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
         units_cal: str | None = None,
-        units_raw: str | None = None,,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         EnumeratedDataType.__init__(
@@ -589,7 +589,7 @@ class FloatMember(Member, FloatDataType):
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
         units_cal: str | None = None,
-        units_raw: str | None = None,,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
     ) -> None:
@@ -628,7 +628,7 @@ class IntegerMember(Member, IntegerDataType):
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
         units_cal: str | None = None,
-        units_raw: str | None = None,,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
     ) -> None:
@@ -664,7 +664,7 @@ class StringMember(Member, StringDataType):
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
         units_cal: str | None = None,
-        units_raw: str | None = None,,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         StringDataType.__init__(
