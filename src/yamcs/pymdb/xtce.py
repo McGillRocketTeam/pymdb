@@ -741,18 +741,20 @@ class XTCE12Generator:
         if opts:
             self.add_ancillary_data(el, {"Yamcs": opts})
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
-            #Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            # Calibrated
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             #Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         #Default, no raw unit support
         # if data_type.units:
@@ -788,18 +790,20 @@ class XTCE12Generator:
         el.attrib["zeroStringValue"] = data_type.zero_string_value
         el.attrib["oneStringValue"] = data_type.one_string_value
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding)
@@ -851,18 +855,20 @@ class XTCE12Generator:
         if default is not None:
             el.attrib["initialValue"] = str(default)
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding, data_type.calibrator)
@@ -898,18 +904,20 @@ class XTCE12Generator:
         if default is not None:
             el.attrib["initialValue"] = _to_xml_value(default)
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding, data_type.calibrator)
@@ -1432,18 +1440,20 @@ class XTCE12Generator:
         if initial_value:
             el.attrib["initialValue"] = _to_xml_value(initial_value)
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding)
@@ -1472,18 +1482,20 @@ class XTCE12Generator:
         el.attrib["zeroStringValue"] = data_type.zero_string_value
         el.attrib["oneStringValue"] = data_type.one_string_value
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding)
@@ -1502,18 +1514,20 @@ class XTCE12Generator:
         if initial_value:
             el.attrib["initialValue"] = initial_value
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding)
@@ -1574,18 +1588,20 @@ class XTCE12Generator:
         if initial_value is not None:
             el.attrib["initialValue"] = str(initial_value)
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding, data_type.calibrator)
@@ -1645,18 +1661,20 @@ class XTCE12Generator:
         el.attrib["signed"] = _to_xml_value(data_type.signed)
         el.attrib["sizeInBits"] = str(data_type.bits)
 
-        if data_type.units:
+        if data_type.calibrated_units or data_type.raw_units:
             unit_set_el = ET.SubElement(el, "UnitSet")
 
             # Calibrated
-            unit_cal_el = ET.SubElement(unit_set_el, "Unit")
-            unit_cal_el.attrib["form"] = "calibrated"
-            unit_cal_el.text = data_type.calibrated_units
+            if data_type.calibrated_units:
+                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el.attrib["form"] = "calibrated"
+                unit_cal_el.text = data_type.calibrated_units
 
             # Raw
-            unit_raw_el = ET.SubElement(unit_set_el, "Unit")
-            unit_raw_el.attrib["form"] = "raw"
-            unit_raw_el.text = data_type.raw_units
+            if data_type.raw_units:
+                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el.attrib["form"] = "raw"
+                unit_raw_el.text = data_type.raw_units
 
         if data_type.encoding:
             self.add_data_encoding(el, system, data_type.encoding, data_type.calibrator)
