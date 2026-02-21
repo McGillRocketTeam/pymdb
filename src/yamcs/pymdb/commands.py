@@ -531,7 +531,7 @@ class Command:
         assignments: Mapping[str, Any] | None = None,
         arguments: Sequence[Argument] | None = None,
         entries: Sequence[CommandEntry] | None = None,
-        significance: CommandSignificance = CommandSignificance.NONE, #level: CommandLevel = CommandLevel.NORMAL,
+        level: CommandLevel = CommandLevel.NORMAL, #significance: CommandSignificance = CommandSignificance.NONE,
         warning_message: str | None = None,
         constraint: (
             Union[TransmissionConstraint, Sequence[TransmissionConstraint]] | None
@@ -587,7 +587,7 @@ class Command:
         self.complete_verifiers: list[CompleteVerifier] = []
         self.failed_verifier: FailedVerifier | None = None
 
-        self.significance: CommandSignificance = significance #self.level: CommandLevel = level
+        self.level: CommandLevel = level #self.significance: CommandSignificance = significance
         """
         The importance of this telecommand in terms of the nature and
         significance of its on-board effect.
