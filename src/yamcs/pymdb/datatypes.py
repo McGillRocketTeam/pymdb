@@ -68,7 +68,8 @@ class DataType:
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         self.short_description: str | None = short_description
@@ -80,7 +81,8 @@ class DataType:
         self.extra: dict[str, str] = dict(extra or {})
         """Arbitrary information, keyed by name"""
 
-        self.units: str | None = units
+        self.units_cal: str | None = units_cal
+        self.units_raw: str | None = units_raw
         """Engineering units"""
 
         self.encoding: Encoding | None = encoding
@@ -97,7 +99,8 @@ class AbsoluteTimeDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: TimeEncoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -105,7 +108,8 @@ class AbsoluteTimeDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
         self.reference: Epoch | datetime | AbsoluteTimeParameter = reference
@@ -118,7 +122,8 @@ class AggregateDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -126,7 +131,8 @@ class AggregateDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
         self.members: list[Member] = list(members)
@@ -167,7 +173,8 @@ class BinaryDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -175,7 +182,8 @@ class BinaryDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+                        units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -194,7 +202,8 @@ class BooleanDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -202,7 +211,8 @@ class BooleanDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -217,7 +227,8 @@ class EnumeratedDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -225,7 +236,8 @@ class EnumeratedDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -255,7 +267,8 @@ class FloatDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
     ) -> None:
@@ -264,7 +277,8 @@ class FloatDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -296,7 +310,8 @@ class IntegerDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
     ) -> None:
@@ -305,7 +320,8 @@ class IntegerDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -331,7 +347,8 @@ class StringDataType(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -339,7 +356,8 @@ class StringDataType(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -358,7 +376,8 @@ class Member(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -366,7 +385,8 @@ class Member(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -386,7 +406,8 @@ class AbsoluteTimeMember(Member, AbsoluteTimeDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: TimeEncoding | None = None,
     ) -> None:
         AbsoluteTimeDataType.__init__(
@@ -400,7 +421,8 @@ class AbsoluteTimeMember(Member, AbsoluteTimeDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -469,7 +491,8 @@ class BinaryMember(Member, BinaryDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         BinaryDataType.__init__(
@@ -484,7 +507,8 @@ class BinaryMember(Member, BinaryDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -499,7 +523,8 @@ class BooleanMember(Member, BooleanDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         BooleanDataType.__init__(
@@ -514,7 +539,8 @@ class BooleanMember(Member, BooleanDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -528,7 +554,8 @@ class EnumeratedMember(Member, EnumeratedDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,,
         encoding: Encoding | None = None,
     ) -> None:
         EnumeratedDataType.__init__(
@@ -542,7 +569,8 @@ class EnumeratedMember(Member, EnumeratedDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -560,7 +588,8 @@ class FloatMember(Member, FloatDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
     ) -> None:
@@ -580,7 +609,8 @@ class FloatMember(Member, FloatDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -597,7 +627,8 @@ class IntegerMember(Member, IntegerDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
     ) -> None:
@@ -616,7 +647,8 @@ class IntegerMember(Member, IntegerDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )
 
@@ -631,7 +663,8 @@ class StringMember(Member, StringDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        units_cal: str | None = None,
+        units_raw: str | None = None,,
         encoding: Encoding | None = None,
     ) -> None:
         StringDataType.__init__(
@@ -646,6 +679,7 @@ class StringMember(Member, StringDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            units_cal=units_cal,
+            units_raw=units_raw,
             encoding=encoding,
         )

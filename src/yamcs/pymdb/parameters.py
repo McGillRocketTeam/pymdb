@@ -95,7 +95,9 @@ class Parameter(DataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
+        #units: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         DataType.__init__(
@@ -103,7 +105,8 @@ class Parameter(DataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
         self.name: str = name
@@ -177,7 +180,8 @@ class AbsoluteTimeParameter(Parameter, AbsoluteTimeDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
         encoding: TimeEncoding | None = None,
     ) -> None:
         AbsoluteTimeDataType.__init__(
@@ -195,7 +199,8 @@ class AbsoluteTimeParameter(Parameter, AbsoluteTimeDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
 
@@ -298,7 +303,8 @@ class BinaryParameter(Parameter, BinaryDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         BinaryDataType.__init__(
@@ -317,7 +323,8 @@ class BinaryParameter(Parameter, BinaryDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
 
@@ -340,7 +347,8 @@ class BooleanParameter(Parameter, BooleanDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         BooleanDataType.__init__(
@@ -359,7 +367,8 @@ class BooleanParameter(Parameter, BooleanDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
 
@@ -383,7 +392,8 @@ class EnumeratedParameter(Parameter, EnumeratedDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         EnumeratedDataType.__init__(
@@ -401,7 +411,8 @@ class EnumeratedParameter(Parameter, EnumeratedDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
 
@@ -433,7 +444,8 @@ class FloatParameter(Parameter, FloatDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
         alarm: ThresholdAlarm | None = None,
@@ -459,7 +471,8 @@ class FloatParameter(Parameter, FloatDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
 
@@ -490,7 +503,8 @@ class IntegerParameter(Parameter, IntegerDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
         encoding: Encoding | None = None,
         calibrator: Calibrator | None = None,
         alarm: ThresholdAlarm | None = None,
@@ -515,7 +529,8 @@ class IntegerParameter(Parameter, IntegerDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
 
@@ -544,7 +559,8 @@ class StringParameter(Parameter, StringDataType):
         short_description: str | None = None,
         long_description: str | None = None,
         extra: Mapping[str, str] | None = None,
-        units: str | None = None,
+        calibrated_units: str | None = None,
+        raw_units: str | None = None,
         encoding: Encoding | None = None,
     ) -> None:
         StringDataType.__init__(
@@ -563,6 +579,7 @@ class StringParameter(Parameter, StringDataType):
             short_description=short_description,
             long_description=long_description,
             extra=extra,
-            units=units,
+            calibrated_units=calibrated_units,
+            raw_units=raw_units,
             encoding=encoding,
         )
