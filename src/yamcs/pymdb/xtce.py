@@ -746,17 +746,17 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             #Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
-        #Default, no raw unit support
+        #Default, no Unit support
         # if data_type.units:
         #     unit_set_el = ET.SubElement(el, "UnitSet")
         #     unit_el = ET.SubElement(unit_set_el, "Unit")
@@ -795,13 +795,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
@@ -860,13 +860,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
@@ -909,13 +909,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
@@ -1445,13 +1445,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
@@ -1487,13 +1487,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
@@ -1519,13 +1519,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
@@ -1593,13 +1593,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
@@ -1666,13 +1666,13 @@ class XTCE12Generator:
 
             # Calibrated
             if data_type.calibrated_units:
-                unit_cal_el = ET.SubElement(unit_set_el, "Calibrated Unit")
+                unit_cal_el = ET.SubElement(unit_set_el, "Unit")
                 unit_cal_el.attrib["form"] = "calibrated"
                 unit_cal_el.text = data_type.calibrated_units
 
             # Raw
             if data_type.raw_units:
-                unit_raw_el = ET.SubElement(unit_set_el, "Raw Unit")
+                unit_raw_el = ET.SubElement(unit_set_el, "Unit")
                 unit_raw_el.attrib["form"] = "raw"
                 unit_raw_el.text = data_type.raw_units
 
